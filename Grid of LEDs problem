@@ -1,0 +1,31 @@
+package led;
+import java.util.*;
+public class Led {
+
+    public static void main(String[] args) {
+       
+        Scanner input = new Scanner(System.in);
+        System.out.println("Please enter a number between 5 and 1000");
+        int number = input.nextInt();
+        double result = 0;
+
+        while (number < 5 || number > 1000) {
+            System.out.println("Eror: Out of boundry. \n Please enter a number between 5 and 1000.");
+            number = input.nextInt();
+        }
+
+        if (number >= 10) {
+            result = Math.pow((number - 4), 2);
+        } else {
+            if (number % 2 == 0)
+                result = Math.pow((number - 4), 2);
+            else if (number == 5)
+                result = 25;
+            else {
+                result = Math.pow((number - (int) Math.sqrt(number)), 2);
+            }
+        }
+
+        System.out.println("The number of ON led equal: " + (int) result);
+    }
+}
